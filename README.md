@@ -42,4 +42,4 @@ Sometimes when pulling changes, there might be merge problems that you can eithe
 This way in the original project that you have open you will discard your work and get the current repo state, but because you copied the project you would be able to
 manually re-apply your work (copy-paste) into the original project.
 
-If in doubt, contact your project leader. 
+If in doubt, contact your project leader . 
