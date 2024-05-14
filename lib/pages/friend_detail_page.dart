@@ -25,8 +25,7 @@ class FriendDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'User Details',
-          style: TextStyle(color: Colors.white),
-        ),
+            style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
         backgroundColor: kLoginRegisterBtnColour.withOpacity(0.9),
         centerTitle: true,
       ),
