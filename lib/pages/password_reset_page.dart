@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -7,16 +5,11 @@ class PasswordResetPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
 
   Future<void> requestPasswordReset(BuildContext context) async {
-    final csrfToken = 'your-csrf-token'; // Get the CSRF token from somewhere
     final response = await http.post(
-      Uri.parse('http://192.168.1.31:8000/password_reset/'),
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': csrfToken,
-      },
-      body: jsonEncode({
+      Uri.parse('http://192.168.1.31:8000/password-reset/'),
+      body: {
         'email': emailController.text,
-      }),
+      },
     );
 
     if (response.statusCode == 200) {
