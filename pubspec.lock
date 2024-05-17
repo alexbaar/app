@@ -252,10 +252,12 @@ packages:
     dependency: transitive
     description:
       name: image_picker_android
+ detached2
       sha256: "79455f6cff4cbef583b2b524bbf0d4ec424e5959f4d464e36ef5323715b98370"
       url: "https://pub.dev"
     source: hosted
     version: "0.8.12"
+ main
   image_picker_for_web:
     dependency: transitive
     description:
@@ -268,10 +270,12 @@ packages:
     dependency: transitive
     description:
       name: image_picker_ios
+ detached2
       sha256: f3285238eb1474ee42946f557ad7df17aa6a2cf4106c2f41bdc948cd71c8b5e5
       url: "https://pub.dev"
     source: hosted
     version: "0.8.11+1"
+ main
   image_picker_linux:
     dependency: transitive
     description:
@@ -308,10 +312,10 @@ packages:
     dependency: "direct main"
     description:
       name: intl
-      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
       url: "https://pub.dev"
     source: hosted
-    version: "0.19.0"
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
