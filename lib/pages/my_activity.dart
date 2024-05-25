@@ -28,7 +28,7 @@ class _MyActivityState extends State<MyActivity> {
     UserDetails? userDetails =
         Provider.of<UserDataProvider>(context, listen: false).userDetails;
     String currentUsername = userDetails!.username;
-    // Initialize locale data
+    // TODO: get the current timezone to display correct tie in the analog clock -> line 121
     initializeDateFormatting('en_EN');
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('d MMMM yyyy', 'en_EN').format(now);
@@ -118,7 +118,7 @@ class _MyActivityState extends State<MyActivity> {
                                     showTicks: true,
                                     showDigitalClock: true,
                                     digitalClockColor: Colors.white,
-                                    datetime: DateTime(2020, 8, 4, 9, 11, 0),
+                                    datetime: DateTime.now(),
                                   ),
                                 ),
                                 // add the clock here!!

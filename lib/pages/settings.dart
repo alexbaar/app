@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phone_app/pages/login.dart';
 import 'package:phone_app/pages/message_center.dart';
+import 'package:phone_app/pages/testing_dashboard.dart';
 import 'package:phone_app/pages/privacy.dart';
 import 'package:phone_app/pages/terminate_account.dart';
 import 'package:phone_app/utilities/constants.dart';
@@ -127,6 +128,22 @@ class _Setting extends State<Setting> {
                     );
                   },
                   arrowOptional: Icons.arrow_forward,
+                ),
+                SizedBox(height: 10),
+                AccountContainer(
+                  fieldName: 'Data Analysis- manual',
+                  typeIcon: Icons.exit_to_app,
+                  onPressed: () {
+                    // Perform logout actions here, such as clearing authentication tokens.
+                    // Navigate to the login screen or any other desired screen.
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Dashboard()),
+                      (route) =>
+                          false, // Clear all routes except the new login page.
+                    );
+                  },
+                  arrowOptional: Icons.gradient,
                 ),
                 SizedBox(height: 60),
               ],
