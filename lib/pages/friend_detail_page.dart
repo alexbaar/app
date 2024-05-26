@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../models/friend.dart';  // Ensure correct path
-import '../utilities/constants.dart';  // Assuming this exists for theme data
+import '../models/friend_model.dart'; // Ensure correct path
+import '../utilities/constants.dart'; // Assuming this exists for theme data
 import '../components/main_app_background.dart'; // Ensure correct path
 
 class FriendDetailPage extends StatelessWidget {
-  final Friend friend;
+  final FriendModel friend;
 
   FriendDetailPage({Key? key, required this.friend}) : super(key: key);
 
@@ -23,11 +23,19 @@ class FriendDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kLoginRegisterBtnColour
+            .withOpacity(0.9), // Set the background color
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         title: Text(
           'User Details',
-          style: TextStyle(color: Colors.white),
+          style: kSubSubTitleOfPage,
         ),
-        backgroundColor: kLoginRegisterBtnColour.withOpacity(0.9),
         centerTitle: true,
       ),
       body: CustomGradientContainerSoft(
@@ -52,7 +60,8 @@ class FriendDetailPage extends StatelessWidget {
                     SizedBox(height: 16),
                     Text(
                       '${friend.name} ${friend.surname}',
-                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
@@ -69,7 +78,8 @@ class FriendDetailPage extends StatelessWidget {
                       icon: Icons.facebook,
                       color: Colors.blue[800],
                       onPressed: () {
-                        final url = 'https://www.facebook.com/${friend.username}';
+                        final url =
+                            'https://www.facebook.com/${friend.username}';
                         print('Attempting to launch $url');
                         _launchURL(url);
                       },
@@ -80,7 +90,8 @@ class FriendDetailPage extends StatelessWidget {
                       icon: Icons.camera_alt,
                       color: Colors.purple,
                       onPressed: () {
-                        final url = 'https://www.instagram.com/${friend.username}';
+                        final url =
+                            'https://www.instagram.com/${friend.username}';
                         print('Attempting to launch $url');
                         _launchURL(url);
                       },
@@ -116,7 +127,11 @@ class FriendDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSocialButton({required String label, required IconData icon, required Color? color, required VoidCallback onPressed}) {
+  Widget _buildSocialButton(
+      {required String label,
+      required IconData icon,
+      required Color? color,
+      required VoidCallback onPressed}) {
     return ElevatedButton.icon(
       onPressed: onPressed,
       icon: Icon(icon, color: Colors.white),

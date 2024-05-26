@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:phone_app/pages/set_workout_page.dart';
+import 'package:phone_app/pages/set_workout_page_2.dart';
+import 'package:phone_app/pages/set_workout_page_3.dart';
+import 'package:phone_app/pages/set_workout_page_4.dart';
+import 'package:phone_app/pages/set_workout_page_5.dart';
+import 'package:phone_app/pages/set_workout_page_6.dart';
+import 'package:phone_app/pages/set_workout_page_7.dart';
 import 'package:provider/provider.dart';
 import '../components/main_app_background.dart';
 import '../components/activity_buttons.dart';
@@ -50,37 +56,103 @@ class _MyWorkoutState extends State<MyWorkout> {
                         ),
                         SizedBox(height: 10),
                         ActivityButton(
-                          onTap: () {},
+                          onTap: () {
+                            Provider.of<WorkoutTypeProvider>(context,
+                                    listen: false)
+                                .updateWorkoutType(name: 'Cycling');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetWorkout2(
+                                        title: '',
+                                      )),
+                            );
+                          },
                           buttonText: 'Cycling',
                           width: 300,
                         ),
                         SizedBox(height: 10),
                         ActivityButton(
-                          onTap: () {},
+                          onTap: () {
+                            Provider.of<WorkoutTypeProvider>(context,
+                                    listen: false)
+                                .updateWorkoutType(name: 'Running');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetWorkout3(
+                                        title: '',
+                                      )),
+                            );
+                          },
                           buttonText: 'Running',
                           width: 300,
                         ),
                         SizedBox(height: 10), // Yoga button
                         ActivityButton(
-                          onTap: () {},
+                          onTap: () {
+                            Provider.of<WorkoutTypeProvider>(context,
+                                    listen: false)
+                                .updateWorkoutType(name: 'Yoga');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetWorkout4(
+                                        title: '',
+                                      )),
+                            );
+                          },
                           buttonText: 'Yoga',
                           width: 300,
                         ),
                         SizedBox(height: 10), // Sports button
                         ActivityButton(
-                          onTap: () {},
+                          onTap: () {
+                            Provider.of<WorkoutTypeProvider>(context,
+                                    listen: false)
+                                .updateWorkoutType(name: 'Pilates');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetWorkout5(
+                                        title: '',
+                                      )),
+                            );
+                          },
                           buttonText: 'Pilates',
                           width: 300,
                         ),
                         SizedBox(height: 10), // Aerobic button
                         ActivityButton(
-                          onTap: () {},
+                          onTap: () {
+                            Provider.of<WorkoutTypeProvider>(context,
+                                    listen: false)
+                                .updateWorkoutType(name: 'Aerobic');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetWorkout6(
+                                        title: '',
+                                      )),
+                            );
+                          },
                           buttonText: 'Aerobic',
                           width: 300,
                         ),
-                        SizedBox(height: 10), // Jumba button
+                        SizedBox(height: 10),
                         ActivityButton(
-                          onTap: () {},
+                          onTap: () {
+                            Provider.of<WorkoutTypeProvider>(context,
+                                    listen: false)
+                                .updateWorkoutType(name: 'High Intensity');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetWorkout7(
+                                        title: '',
+                                      )),
+                            );
+                          },
                           buttonText: 'High Intensity',
                           width: 300,
                         ),

@@ -1,4 +1,4 @@
-class Friend {
+class FriendModel {
   final String name;
   final String surname;
   final String username;
@@ -7,7 +7,7 @@ class Friend {
   final String phoneNumber;
   final String imagePath;
 
-  Friend({
+  FriendModel({
     required this.name,
     required this.surname,
     required this.username,
@@ -18,8 +18,8 @@ class Friend {
   });
 
   // Factory constructor to create a Friend from JSON data
-  factory Friend.fromJson(Map<String, dynamic> json, String baseURL) {
-    return Friend(
+  factory FriendModel.fromJson(Map<String, dynamic> json, String baseURL) {
+    return FriendModel(
       name: json['name'] as String,
       surname: json['surname'] as String,
       username: json['username'] as String,

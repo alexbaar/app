@@ -58,7 +58,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-/*
+
     signingConfigs{
         debug {
             keyAlias 'capstondebug'
@@ -67,7 +67,7 @@ android {
             storePassword 'capston'
         }
     }
-*/
+
     task wrapper(type: Wrapper){
         gradleVersion = '7.2'
     }

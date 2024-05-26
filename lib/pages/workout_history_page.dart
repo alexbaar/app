@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:phone_app/components/bottom_button.dart';
 import 'package:phone_app/components/input_text_field.dart';
 import 'package:phone_app/components/main_app_background.dart';
+import 'package:phone_app/pages/settings.dart';
 import 'package:phone_app/utilities/constants.dart';
 import 'package:provider/provider.dart';
 import '../components/account_containers.dart';
@@ -32,11 +33,18 @@ class _DashboardState extends State<Dashboard> {
             icon: Icon(Icons.arrow_back),
             color: Colors.white,
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Setting(
+                          title: 'Settings',
+                        )),
+                (route) => false, // Clear all routes except the new login page.
+              );
             },
           ),
           title: Text(
-            'Test Dashboard',
+            'My past workouts',
             style: kSubSubTitleOfPage,
           ),
           centerTitle: true,

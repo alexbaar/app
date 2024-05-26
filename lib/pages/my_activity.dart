@@ -37,97 +37,100 @@ class _MyActivityState extends State<MyActivity> {
         child: Scaffold(
       body: CustomGradientContainerSoft(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    RoundedGreyContainer(
-                      width: 180,
-                      height: 300,
-                      children: [
-                        Text("Hi,$currentUsername", style: kSubSubTitleOfPage),
-                        Text(
-                          'Let\'s check your activity',
-                          style: kSimpleTextWhite,
-                        ),
-
-                        //Image.asset('assets/image.png', width: 100, height: 100),
-                        // Add more widgets as needed
-                      ],
-                    ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RoundedGreyContainer(
+                        width: 180,
+                        height: 300,
                         children: [
-                          // image
-                          RoundedGreyContainer(
-                              width: 140,
-                              height: 140,
-                              imagePath: userDetails != null &&
-                                      userDetails.imagePath != null &&
-                                      userDetails.imagePath.isNotEmpty
-                                  ? '${dotenv.env['API_URL_BASE']}${userDetails.imagePath}'
-                                  : '${dotenv.env['API_URL_BASE']}/media/images/default.jpeg',
-                              defaultImagePath:
-                                  '${dotenv.env['API_URL_BASE']}/media/images/default.jpeg',
-                              children: [
-                                Text(
-                                  'two',
-                                  style: kSimpleTextWhite,
-                                )
-                              ]),
-                          SizedBox(
-                            height: 10.0,
+                          Text("Hi,$currentUsername",
+                              style: kSubSubTitleOfPage),
+                          Text(
+                            'Let\'s check your activity',
+                            style: kSimpleTextWhite,
                           ),
-                          // date + clock
-                          RoundedGreyContainer(
-                              width: 140,
-                              height: 140,
-                              children: [
-                                Text(
-                                  formattedDate,
-                                  style: kSimpleTextWhite,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                SizedBox(
-                                  width: 80, // Adjust width as needed
-                                  height: 80, // Adjust height as needed
-                                  child: AnalogClock(
-                                    decoration: BoxDecoration(
-                                        border: Border.all(
-                                            width: 2.0, color: Colors.black),
-                                        color: kLoginRegisterBtnColour,
-                                        shape: BoxShape.circle), // decoration
-                                    width: 40.0,
-                                    isLive: true,
-                                    hourHandColor: Colors.white,
-                                    minuteHandColor: Colors.white,
-                                    showSecondHand: true,
-                                    numberColor: Colors.white,
-                                    showNumbers: true,
-                                    textScaleFactor: 1.5,
-                                    showTicks: true,
-                                    showDigitalClock: true,
-                                    digitalClockColor: Colors.white,
-                                    datetime: DateTime.now(),
+
+                          //Image.asset('assets/image.png', width: 100, height: 100),
+                          // Add more widgets as needed
+                        ],
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            // image
+                            RoundedGreyContainer(
+                                width: 140,
+                                height: 140,
+                                imagePath: userDetails != null &&
+                                        userDetails.imagePath != null &&
+                                        userDetails.imagePath.isNotEmpty
+                                    ? '${dotenv.env['API_URL_BASE']}${userDetails.imagePath}'
+                                    : '${dotenv.env['API_URL_BASE']}/media/images/default.jpeg',
+                                defaultImagePath:
+                                    '${dotenv.env['API_URL_BASE']}/media/images/default.jpeg',
+                                children: [
+                                  Text(
+                                    'two',
+                                    style: kSimpleTextWhite,
+                                  )
+                                ]),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            // date + clock
+                            RoundedGreyContainer(
+                                width: 140,
+                                height: 140,
+                                children: [
+                                  Text(
+                                    formattedDate,
+                                    style: kSimpleTextWhite,
                                   ),
-                                ),
-                                // add the clock here!!
-                              ]),
-                        ]),
-                  ],
-                ),
-              )
-            ],
+                                  SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  SizedBox(
+                                    width: 80, // Adjust width as needed
+                                    height: 80, // Adjust height as needed
+                                    child: AnalogClock(
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              width: 2.0, color: Colors.black),
+                                          color: kLoginRegisterBtnColour,
+                                          shape: BoxShape.circle), // decoration
+                                      width: 40.0,
+                                      isLive: true,
+                                      hourHandColor: Colors.white,
+                                      minuteHandColor: Colors.white,
+                                      showSecondHand: true,
+                                      numberColor: Colors.white,
+                                      showNumbers: true,
+                                      textScaleFactor: 1.5,
+                                      showTicks: true,
+                                      showDigitalClock: true,
+                                      digitalClockColor: Colors.white,
+                                      datetime: DateTime.now(),
+                                    ),
+                                  ),
+                                  // add the clock here!!
+                                ]),
+                          ]),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -87,8 +87,7 @@ class _LoginPageState extends State<LoginPage> {
     await handleLoginResponse(response);
   }
 
-  Future<void> handleLoginResponse(Response response) async{
-
+  Future<void> handleLoginResponse(Response response) async {
     if (response.statusCode == 200) {
       var responseData = jsonDecode(response.body);
 
@@ -248,6 +247,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _handleGoogleSignIn() async {
     try {
+      await _googleSignIn.signOut(); // Ensure previous session is cleared
       var account = await _googleSignIn.signIn();
       await SocialMediaAuthentication().handleGoogleSignIn(account);
     } catch (error) {
@@ -256,7 +256,6 @@ class _LoginPageState extends State<LoginPage> {
       }
     }
   }
-
 
   Future<void> handleFacebookSignIn() async {
     try {
@@ -277,13 +276,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<Response> socialMediaLogin() async {
-    if(SocialMediaAuthentication.userData == null) {
+    if (SocialMediaAuthentication.userData == null) {
       return Future(() => Response("message: 'User data Not Found!'", 400));
     }
 
     await dotenv.load(fileName: ".env");
     String? baseURL = dotenv.env[
-    'API_URL_BASE']; // only the partial, network specific to each team member
+        'API_URL_BASE']; // only the partial, network specific to each team member
     final apiUrl = '$baseURL/login-sm/';
 
     final interceptor = MyHttpInterceptor(http.Client());
