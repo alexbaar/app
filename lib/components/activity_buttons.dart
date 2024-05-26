@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:phone_app/utilities/constants.dart';
 
 class ActivityButton extends StatelessWidget {
-  // custom constructor
-  ActivityButton({required this.onTap, required this.buttonText, this.width});
+  // Custom constructor
+  ActivityButton({
+    required this.onTap,
+    required this.buttonText,
+    this.width,
+    this.color,
+  });
 
-  // use VoidCallback instead of Function
   final VoidCallback onTap;
   final String buttonText;
   final double? width;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,8 @@ class ActivityButton extends StatelessWidget {
           height: kBottomContainerHeight,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(40.0),
-            color: kHomeBtnColoursOpaQue, // Adjust border radius as needed
+            color: color ??
+                kHomeBtnColoursOpaQue, // Use provided color or default color
           ),
         ),
       ),

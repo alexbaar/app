@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phone_app/pages/login.dart';
 import 'package:phone_app/pages/message_center.dart';
 import 'package:phone_app/pages/schedule_workout_screen.dart';
+import 'package:phone_app/pages/workout_history_page.dart';
 import 'package:phone_app/utilities/constants.dart';
 import '../components/account_containers.dart';
 import '../components/bottom_navigation_bar.dart';
@@ -149,14 +150,8 @@ class _Setting extends State<Setting> {
                   fieldName: 'Logout',
                   typeIcon: Icons.exit_to_app,
                   onPressed: () {
-                    // Perform logout actions here, such as clearing authentication tokens.
-                    // Navigate to the login screen or any other desired screen.
-                    Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                      (route) =>
-                          false, // Clear all routes except the new login page.
-                    );
+                    // this function check if we signed in by using google or by providing details manually
+                    _handleLogout(context);
                   },
                   arrowOptional: Icons.arrow_forward,
                 ),
@@ -165,24 +160,11 @@ class _Setting extends State<Setting> {
                   fieldName: 'My workout history',
                   typeIcon: Icons.exit_to_app,
                   onPressed: () {
-                    // this function check if we signed in by using google or by providing details manually
-                    _handleLogout(context);
-                  },
-                  arrowOptional: Icons.gradient,
-                ),
-                SizedBox(height: 10),
-                AccountContainer(
-                  fieldName: 'Schedule workout',
-                  typeIcon: Icons.exit_to_app,
-                  onPressed: () {
-                    // Perform logout actions here, such as clearing authentication tokens.
-                    // Navigate to the login screen or any other desired screen.
-                    Navigator.pushAndRemoveUntil(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => ScheduleWorkoutScreen()),
-                      (route) =>
-                          false, // Clear all routes except the new login page.
+                        builder: (context) => Dashboard(),
+                      ),
                     );
                   },
                   arrowOptional: Icons.gradient,

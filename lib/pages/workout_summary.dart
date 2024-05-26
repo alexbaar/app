@@ -28,6 +28,7 @@ class _WorkoutSummaryState extends State<WorkoutSummary> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kLoginRegisterBtnColour.withOpacity(0.9),
+        automaticallyImplyLeading: false, // no arrow icon back
       ),
       body: Stack(
         children: [

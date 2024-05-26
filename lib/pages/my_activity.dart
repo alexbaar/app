@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/intl.dart';
 import 'package:phone_app/components/main_app_background.dart';
+import 'package:phone_app/pages/schedule_workout_screen.dart';
 import 'package:phone_app/pages/settings.dart';
 import 'package:phone_app/utilities/constants.dart';
 import 'package:provider/provider.dart';
+import '../components/activity_buttons.dart';
 import '../components/home_page_containers.dart';
 import '../models/user_details.dart';
 import '../provider/user_data_provider.dart';
@@ -128,7 +130,24 @@ class _MyActivityState extends State<MyActivity> {
                           ]),
                     ],
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 80.0,
+                ),
+                ActivityButton(
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ScheduleWorkoutScreen()),
+                      (route) =>
+                          false, // Clear all routes except the new login page.
+                    );
+                  },
+                  color: kLoginRegisterBtnColour,
+                  buttonText: 'Schedule workout',
+                  width: 300,
+                ),
               ],
             ),
           ),
