@@ -6,7 +6,9 @@ SETUP:
 
 3. paste the URL: 
 
+
    https://github.com/alexbaar/app.git
+
 
 choose where to save the project on your computer
 
